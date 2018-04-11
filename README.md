@@ -6,3 +6,16 @@ The interpreter _I_ takes in input a _While_ program _S_ and a state _s_, and ap
 
 ## Architecture
 ![alt text](documentation/Class_Diagram.png?raw=true "Class Diagram")
+
+## Example
+The following code implements in _While_ language a function that stores on variable y the factorial of x and assigns 1 to x if x is a number greater or equal to 1 and does not terminate otherwise.
+
+```
+y := 1;
+while !x=1 do(
+  y := y*x;
+  x := x-1
+)
+```
+
+Let now define a state s = <x=4,y=10,z=3>. The interpreter with the statements above and the state s returns as final state <x=1,y=24,z=3> as expected.
