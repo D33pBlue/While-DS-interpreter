@@ -19,3 +19,6 @@ while !x=1 do(
 ```
 
 Let now define a state s = <x=4,y=10,z=3>. The interpreter with the statements above and the state s returns as final state <x=1,y=24,z=3> as expected.
+
+## Dependencies
+- lark: library for parsing (https://github.com/erezsh/lark)
