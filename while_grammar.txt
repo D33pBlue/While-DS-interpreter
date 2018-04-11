@@ -1,0 +1,38 @@
+statement: x ASSIGN a
+          | SKIP
+          | IF b "then" statement "else" statement
+          | WHILE b "do" statement
+          | statement CONCAT statement
+          | "(" statement ")"
+
+ASSIGN: ":="
+SKIP: "skip"
+CONCAT: ";"
+WHILE: "while"
+IF: "if"
+NEGATE: "-"
+
+a: n | NEGATE n | x | NEGATE x | a AOP a | "(" a ")" | NEGATE "(" a ")"
+
+AOP: "+"|"-"|"*"
+
+b: BOOL
+    | a BAOP a
+    | NOT b
+    | b AND b
+
+BAOP: "="|"<="
+AND: "&"
+NOT: "!"
+x: VAR
+VAR: /[a-z]+[a-z0-9]*/
+n: NUMBER
+BOOL: "true"|"false"
+LITTERAL: "a"|"b"|"c"|"d"|"e"|"f"|"g"|"h"|"i"|"j"|"k"|"l"|"m"
+        |"o"|"p"|"q"|"r"|"s"|"t"|"u"|"v"|"w"|"x"|"y"|"z"
+NUMERICAL: "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
+
+%import common.ESCAPED_STRING
+%import common.NUMBER
+%import common.WS
+%ignore WS

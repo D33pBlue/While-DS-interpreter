@@ -1,0 +1,15 @@
+y := y+1;
+w := 1-(y);
+skip;
+x := 10*(2+3);
+if y<=4 then skip else skip;
+z := x+15-x*2;
+y := z*(-4);
+while -10000<=x & !false do(
+    if z<=x
+        then y := y-1
+        else (y := y+z; skip);
+    while w <= 20 do(
+      w := w+1
+    );
+    x := x-1)
